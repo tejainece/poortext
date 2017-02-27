@@ -1,0 +1,39 @@
+<style>
+    .editor {
+    width: 200px;
+    height: 200px;
+    overflow: auto;
+    border: 1px solid black;
+    box-sizing: border-box;
+    padding: 5px;
+    }
+
+    .view {
+    width: 200px;
+    height: 200px;
+    overflow: auto;
+    border: 1px solid black;
+    box-sizing: border-box;
+    padding: 5px;
+    }
+</style>
+
+<h1>My First Angular 2 App</h1>
+
+<div class="editor" #editor contenteditable="true" (keypress)="edKeyPressed($event)">
+    <div *ngFor="let section of rt.sections">
+        <div>{{section.heading.text}}</div>
+        <div *ngFor="let paragraph of section.paragraphs">
+            <span *ngFor="let span of paragraph.spans">{{span.text}}</span>
+        </div>
+    </div>
+</div>
+
+<div class="view" #view>
+    <div *ngFor="let section of rt.sections">
+        <div>{{section.heading.text}}</div>
+        <div *ngFor="let paragraph of section.paragraphs">
+            <span *ngFor="let span of paragraph.spans">{{span.text}}</span>
+        </div>
+    </div>
+</div>
